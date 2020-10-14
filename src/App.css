@@ -1,29 +1,103 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 150px;
+}
+
+body {
+  background: url(https://www.csshint.com/wp-content/uploads/2020/01/CSS-Animated-Backgrounds-2.gif);
+}
+
+#title {
+  border-style: solid;
+  border-color: white;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+}
+
+#button {
+  backface-visibility: active;
+  margin-left: 1000px;
+  border-radius: 12px;
+
+  background-color: magenta;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#button:active {
+  backface-visibility: hidden;
 }
 
 .trivia-card {
   font-family: Georgia, 'Times New Roman', Times, serif;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color: white;
   transition: 0.3s;
   padding: 2px 16px;
-  width: 25%;
+  width: 100%;
   margin: 1rem;
-  background-color: azure;
-  display: flex;
-  flex-wrap: wrap;
+  background-color: rgb(1, 73, 206);
   justify-content: center;
+  border-radius: 12px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.trivia-card {
+  width: 300px;
+  height: 300px;
+  margin: 20px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.trivia-card:hover {
+  transform: scale(1.05)
+}
+
+.trivia-card:active {
+  transform: rotateY(180deg) scale(1.05);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  height: inherit;
+  width: inherit;
+  backface-visibility: hidden;
+  background-size: cover;
+}
+
+.card-front {
+  filter: grayscale(100%);
+  transition-duration: 1s;
+  box-shadow: 5px 5px 10px;
+  box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
+  
+}
+
+.card-front:hover {
+  filter: grayscale(0%);
+}
+
+.card-back {
+  /* background-image: url("./assets/patterns/cork-wallet.png"); */
+  transform: rotateY(180deg);
+  box-shadow: 5px 5px 10px rgb(55, 55, 55, 0.85);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .App-header {

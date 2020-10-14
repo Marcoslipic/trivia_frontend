@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
-import Card from './components/Card'
+import TriviaCard from './components/TriviaCard'
 import './App.css';
 
 class App extends Component {
 
   state = {
-    trivia: []
+    trivia: [],
+    isClicked: false
   }
 
   handleClick = (event) => {
@@ -14,13 +15,15 @@ class App extends Component {
       .then(data => this.setState( {trivia: data} ))
   }
 
-  showTrivia = () => this.state.trivia.map(trivium => <Card key={trivium.id} trivium={trivium} />)
+  generateTriviaCards = () => this.state.trivia.map(trivium => <TriviaCard key={trivium.id} trivium={trivium} />)
 
   render() {
   return (
     <div className="App">
-      <button onClick={this.handleClick}>Fetch Trivia Questions</button>
-      {this.showTrivia()}
+      <div id="button">
+        <button onClick={this.handleClick}>Play Trivia!</button>
+      </div>
+      {this.generateTriviaCards()}
     </div>
   )}
 }
