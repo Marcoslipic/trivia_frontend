@@ -19,7 +19,7 @@ class App extends Component {
   render() {
   return (
     <div className="App">
-      <button onClick={this.handleClick}>Fetch Trivia Questions</button>
+      <button onClick={this.handleClick}>Play Trivia!</button>
       {this.showTrivia()}
     </div>
   )}
